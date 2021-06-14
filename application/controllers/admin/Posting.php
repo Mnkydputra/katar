@@ -1,6 +1,6 @@
 <?php
 
-class Dashboard extends CI_Controller
+class Posting extends CI_Controller
 {
     public function __construct()
 	{
@@ -22,8 +22,4 @@ class Dashboard extends CI_Controller
         $this->load->view('admin/posting');
         $this->load->view('template/footer');
     }
-
-
 }
-
-?>

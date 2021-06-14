@@ -29,19 +29,16 @@ class Login extends CI_Controller
         $cekakun = $this->admin->cari(array("email" => $username, "password" => $password), "akun");
         if ($cekakun->num_rows()>0) {
             $data = $cekakun->row();
-
+				$this->session->set_userdata("email", $data->email);
+				$this->session->set_userdata("nama", $data->nama);
+				$this->session->set_userdata("id", $data->id);
+				$this->session->set_userdata("role",$data->role);
             switch ($data->role)
             {
                 case '1' :
-				$this->session->set_userdata("email", $data->email);
-				$this->session->set_userdata("nama", $data->nama);
-				$this->session->set_userdata("id", $data->id);
                 redirect('admin/Dashboard');
                 break;
 				case '2' :
-				$this->session->set_userdata("email", $data->email);
-				$this->session->set_userdata("nama", $data->nama);
-				$this->session->set_userdata("id", $data->id);
 				redirect('user/Dashboard');
 				break;
                 default:

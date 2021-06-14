@@ -47,7 +47,7 @@
     <nav class="nav d-flex justify-content-between">
       <a class="p-2 text-muted" href="<?= base_url('home')?>">Home</a>
       <a class="p-2 text-muted" href="<?= base_url('visi_misi')?>">Visi Misi</a>
-      <a class="p-2 text-muted" href="<?= base_url()?>">Struktur Organisasi</a>
+      <a class="p-2 text-muted" href="#">Struktur Organisasi</a>
       <a class="p-2 text-muted" href="<?= base_url('profile')?>">Profil</a>
       <!-- <a class="p-2 text-muted" href="<?= base_url() ?>">Galeri</a> -->
     </nav>

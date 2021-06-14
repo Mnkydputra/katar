@@ -36,13 +36,13 @@ class Login extends CI_Controller
 				$this->session->set_userdata("email", $data->email);
 				$this->session->set_userdata("nama", $data->nama);
 				$this->session->set_userdata("id", $data->id);
-                redirect('dashboard');
+                redirect('admin/Dashboard');
                 break;
 				case '2' :
 				$this->session->set_userdata("email", $data->email);
 				$this->session->set_userdata("nama", $data->nama);
 				$this->session->set_userdata("id", $data->id);
-				redirect('dashboard_user');
+				redirect('user/Dashboard');
 				break;
                 default:
                 echo "email tidak terdaftar" . "<a href='" . base_url('home') . "'>Kembali</a>";

@@ -31,19 +31,18 @@ class Login extends CI_Controller
             $data = $cekakun->row();
 				$this->session->set_userdata("email", $data->email);
 				$this->session->set_userdata("nama", $data->nama);
-				$this->session->set_userdata("id", $data->id);
 				$this->session->set_userdata("role",$data->role);
-            switch ($data->role)
-            {
+				$this->session->set_userdata("id",$data->id);
+            switch ($data->role) {
                 case '1' :
                 redirect('admin/Dashboard');
-                break;
+                	break;
 				case '2' :
 				redirect('user/Dashboard');
-				break;
+				 	break;
                 default:
-                echo "email tidak terdaftar" . "<a href='" . base_url('home') . "'>Kembali</a>";
-                break;
+                # code ...
+                	break;
             }
         }else{
             $this->session->set_flashdata("nouser", "akun tidak di temukan");

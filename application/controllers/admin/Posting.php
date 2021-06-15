@@ -18,7 +18,7 @@ class Posting extends CI_Controller
     public function index()
     {
         $data['judul'] = "BUKIT DURI";
-        $this->load->view('template/header',$data);
+        $this->load->view('template/header',$data); 
         $this->load->view('admin/posting');
         $this->load->view('template/footer');
     }

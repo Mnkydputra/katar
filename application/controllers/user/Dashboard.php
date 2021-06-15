@@ -19,7 +19,7 @@ class Dashboard extends CI_Controller
     {
         $data['judul'] = "BUKIT DURI";
         $this->load->view('template/header',$data);
-        $this->load->view('dashboard_user');
+        $this->load->view('user/dashboard');
         $this->load->view('template/footer');
     }
 

@@ -41,17 +41,46 @@
       </div>
     </div>
   </header>
+   
+    <hr>
 
-
-    <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-      <a class="p-2 text-muted" href="<?= base_url('home')?>">Home</a>
-      <a class="p-2 text-muted" href="<?= base_url('visi_misi')?>">Visi Misi</a>
-      <a class="p-2 text-muted" href="#">Struktur Organisasi</a>
-      <a class="p-2 text-muted" href="<?= base_url('profile')?>">Profil</a>
-      <!-- <a class="p-2 text-muted" href="<?= base_url() ?>">Galeri</a> -->
-    </nav>
-  </div><hr>
+    <?php if($this->session->userdata('role') == "")
+    { ?>
+       <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="<?= base_url('umu/home')?>">Home</a>
+          <a class="p-2 text-muted" href="<?= base_url('visi_misi')?>">Visi Misi</a>
+          <a class="p-2 text-muted" href="<?= base_url()?>">Struktur Organisasi</a>
+          <a class="p-2 text-muted" href="<?= base_url('profile')?>">Profil</a>
+          <!-- <a class="p-2 text-muted" href="<?= base_url() ?>">Galeri</a> -->
+        </nav>
+        </div>
+    <?php }else if($this->session->userdata('role') == 2){
+      ?> 
+        <div class="nav-scroller py-1 mb-2">
+          <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="#">Home</a>
+          <a class="p-2 text-muted" href="#">Profile Saya</a>
+          <a class="p-2 text-muted" href="#">Berita</a>
+          <a class="p-2 text-muted" href="#">Forum</a>
+          </nav>
+        </div>
+      <?php }else if($this->session->userdata('role') == 1){
+        ?> 
+         <div class="nav-scroller py-1 mb-2">
+          <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="#">Home</a>
+          <a class="p-2 text-muted" href="#">Profile Saya</a>
+          <a class="p-2 text-muted" href="#">Agenda</a>
+          <a class="p-2 text-muted" href="#">Pengumuman</a>
+          <a class="p-2 text-muted" href="#">Berita</a>          
+          <a class="p-2 text-muted" href="#">Menu</a>          
+          <a class="p-2 text-muted" href="#">Album</a>
+        <a class="p-2 text-muted" href="#">Pengumuman</a>
+          </nav>
+        </div>
+        <?php } ?>
+      
 
 
 

@@ -2,7 +2,7 @@
 
 class Login extends CI_Controller
 {
-    public function __construct()
+	public function __construct()
 	{
 		parent::__construct();
 		$id 	 = $this->session->userdata('id');
@@ -12,52 +12,50 @@ class Login extends CI_Controller
 		}
 	}
 
-    //tampilan awal login
-    public function index()
-    {
-        $this->load->view('login');
-    }
+	//tampilan awal login
+	public function index()
+	{
+		$this->load->view('login');
+	}
 
-    //cek di table akun, apakah emailnya terdaftar
-    public function Ceklogin()
-    {
-        date_default_timezone_set('Asia/Jakarta');
-        $username = $this->input->post("email");
-        $password = md5($this->input->post("password"));
-        var_dump($username,$password);
-    
-        $cekakun = $this->admin->cari(array("email" => $username, "password" => $password), "akun");
-        if ($cekakun->num_rows()>0) {
-            $data = $cekakun->row();
-				$this->session->set_userdata("email", $data->email);
-				$this->session->set_userdata("nama", $data->nama);
-				$this->session->set_userdata("role",$data->role);
-				$this->session->set_userdata("id",$data->id);
-            switch ($data->role) {
-                case '1' :
-                redirect('admin/Dashboard');
-                	break;
-				case '2' :
-				redirect('user/Dashboard');
-				 	break;
-                default:
-                # code ...
-                	break;
-            }
-        }else{
-            $this->session->set_flashdata("nouser", "akun tidak di temukan");
+	//cek di table akun, apakah emailnya terdaftar
+	public function Ceklogin()
+	{
+		date_default_timezone_set('Asia/Jakarta');
+		$username = $this->input->post("email");
+		$password = md5($this->input->post("password"));
+		//        var_dump($username,$password);
+
+		$cekakun = $this->admin->cari(array("email" => $username, "password" => $password), "akun");
+		if ($cekakun->num_rows() > 0) {
+			$data = $cekakun->row();
+			$this->session->set_userdata("email", $data->email);
+			$this->session->set_userdata("nama", $data->nama);
+			$this->session->set_userdata("role", $data->role);
+			$this->session->set_userdata("id", $data->id);
+			switch ($data->role) {
+				case '1':
+					redirect('admin/Dashboard');
+					break;
+				case '2':
+					redirect('user/Dashboard');
+					break;
+				default:
+					# code ...
+					break;
+			}
+		} else {
+			$this->session->set_flashdata("nouser", "akun tidak di temukan");
 			redirect("login");
-        }
+		}
+	}
 
+	public function CreateAkun()
+	{
+		$this->load->view('create_akun');
+	}
 
-    }
-
-    public function CreateAkun()
-    {
-        $this->load->view('create_akun');
-    }
-
-    public function Create()
+	public function Create()
 	{
 
 		$nama 		 	= $this->input->post("nama");
@@ -75,12 +73,12 @@ class Login extends CI_Controller
 		var_dump($data);
 		$cekakun =   $this->admin->cari(array("email" => $email), "akun")->num_rows();
 		if ($cekakun == null) {
-		$this->admin->inputData($data,'akun');
-		$this->session->set_flashdata('sukses','akun sudah terdaftar');
-		redirect("login");
-		}else{
-		$this->session->set_flashdata('message','akun sudah terdaftar');
-		redirect("Login/Create_akun");
+			$this->admin->inputData($data, 'akun');
+			$this->session->set_flashdata('sukses', 'akun sudah terdaftar');
+			redirect("login");
+		} else {
+			$this->session->set_flashdata('message', 'akun sudah terdaftar');
+			redirect("Login/Create_akun");
 		}
 	}
 }

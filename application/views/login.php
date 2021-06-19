@@ -5,21 +5,21 @@
 	<title>BUKIT DURI</title>
 	<meta name="viewport" content="width=device-width , initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/login.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/sweetalert2/sweetalert2.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/sweetalert2/sweetalert2.min.css" media="screen">
 	<script src="<?= base_url('assets/sweetalert2/') ?>sweetalert2.min.js"></script>
 
 </head>
 
 <body>
 
-		<div class="slidercaptcha card">
-			<div class="card-header">
-				<span>Drag To Verify</span>
-			</div>
-			<div class="card-body">
-				<div id="captcha"></div>
-			</div>
+	<div class="slidercaptcha card">
+		<div class="card-header">
+			<span>Drag To Verify</span>
 		</div>
+		<div class="card-body">
+			<div id="captcha"></div>
+		</div>
+	</div>
 
 	<div class="container">
 		<div class="brand-logo"><img class="brand-logo" src="<?php echo base_url() ?>assets/img/logo.png"></div>
@@ -41,7 +41,7 @@
 			<?php } ?>
 		</div>
 		<div class="akun">
-				<a href="Login/CreateAkun">Daftar Akun</a></label>
+			<a href="Login/CreateAkun">Daftar Akun</a></label>
 		</div>
 
 
@@ -63,17 +63,17 @@
 		}
 	</script>
 
-	<?php if($this->session->flashdata('sukses')){?>
-	<script type="text/javascript">
-		Swal.fire({
-			title: 	'Berhasil!',
-			text: 	'Password Anda : S1g4p123',
-			icon: 	'success',
-			confirmButtonText: 'Cool'
+	<?php if ($this->session->flashdata('sukses')) { ?>
+		<script type="text/javascript">
+			Swal.fire({
+				title: 'Berhasil!',
+				text: 'Password Anda : S1g4p123',
+				icon: 'success',
+				confirmButtonText: 'Cool'
 			})
-	</script>
+		</script>
 
-<?php }?>
+	<?php } ?>
 </body>
 
 </html>

@@ -18,11 +18,28 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = "BUKIT DURI";
-        $this->load->view('template/header',$data);
-        $this->load->view('admin/posting');
+        $data = array(
+			'judul'  => "BUKIT DURI",
+			'log'	 =>	$this->admin->getData("log_aktivitas")->result()
+		);
+		$this->load->view('template/header',$data);
+        $this->load->view('admin/dashboard',$data);
         $this->load->view('template/footer');
+
+
+
     }
+
+	public function pengumuman()
+	{
+  		$post = array(
+			'judul'  => "BUKIT DURI",
+			'posting' =>$this->admin->getData("posting")->result()
+		);
+        $this->load->view('template/header',$post);
+        $this->load->view('admin/pengumuman',$post);
+        $this->load->view('template/footer');	
+	}
 
 
 }

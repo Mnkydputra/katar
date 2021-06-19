@@ -51,7 +51,7 @@
             </nav>
         </div>
         <div class="p-4">
-            <h4 class="font-italic">Elsewhere</h4>
+            <h4 class="font-italic">Subscrime us</h4>
             <ol class="list-unstyled">
             <li><a href="#">Instagram</a></li>
             <li><a href="#">Twitter</a></li>

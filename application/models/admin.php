@@ -20,5 +20,13 @@ class Admin extends CI_Model
 		return $this->db->get_where($table, $where);
 	}
 
+	// Menyimpan Aktifitas Admin
+	public function save_log($param)
+	{
+		$sql    = $this->db->insert_string('log_aktivitas', $param);
+		$ex     = $this->db->query($sql);
+		return $this->db->affected_rows($sql);
+	}
+
 }
 ?>

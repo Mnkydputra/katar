@@ -22,7 +22,7 @@
                             <p class="card-text"><b><?php echo $elements->sub_judul ?></b></p>
                             <p class="card-text"></p>
                             <p class="card-text"></p>
-                            <a href="#" class="btn btn-secondary">Full Details</a>
+                            <a href="detail_pengumuman" data-judul="<?= $elements->judul?>" class="btn btn-secondary" data-toggle="modal" data-target="#detail_pengumuman">Detail Pengumuman </a>
                         </div>
                     </div>
                 </div>
@@ -30,33 +30,37 @@
         <?php endforeach; ?>
     </div>
 
-    <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-        Launch static backdrop modal
-        </button>
-
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="detail_pengumuman" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
+       
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <h5 class="modal-title" id="staticBackdropLabel"><?= $elements->judul?></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <h1 id="judul"></h1>
+                <?= $elements->cerita?>
+                <hr>
+                <?= $elements->post_oleh?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Understood</button>
             </div>
             </div>
+           
         </div>
         </div>  
 </div>
 
 
 <script type="text/javascript">
+	$('.click').on('click',function(e){
+              document.getElementById("judul").value = $(this).attr('data-judul');
+              $('#detail_pengumuman').modal('hide');
+        	})
 </script>

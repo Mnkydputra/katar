@@ -6,9 +6,6 @@
     </style>
 
 <div class="container">
-    <div class="container md-4">
-        <a id="tambahkaryawan" href="<?= base_url('admin/Form_pengumuman/add') ?>" class="btn btn-success">Tambah Data </a><hr><br>
-    </div>
         <div class="row">
         <!-- my php code which uses x-path to get results from xml query. -->
         <?php foreach ( $posting as $elements) : ?>
@@ -49,7 +46,7 @@
                 <p>Tanggal : <?= $elements->tahun?></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
             </div>
            

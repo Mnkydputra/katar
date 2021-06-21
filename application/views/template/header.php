@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
   <link rel="shortcut icon" href="<?php echo base_url() ?>assets/img/logo.png">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="<?= base_url('assets/sweetalert2/') ?>sweetalert2.min.css">
+  <script src="<?= base_url('assets/sweetalert2/') ?>sweetalert2.min.js"></script>
 
   <!-- js boostrap -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -38,7 +40,15 @@
     <header class="blog-header py-3">
       <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-4 pt-1">
-          <a class="text-muted" href="#">Subscribe</a>
+          <a class="text-muted" style="text-decoration:none" href="#"><?php
+          $subs = "Subscribe";
+          $log  = "Logout";
+          if($this->session->userdata('nama') == null){
+            echo $subs;
+          }else{
+           echo "<a href='../logout'>Logout</a>";
+          }
+          ?></a>
         </div>
         <div class="col-4 text-center">
           <a class="blog-header-logo text-dark" href="#">Bukit Duri</a>
@@ -50,7 +60,7 @@
             $txt = "Login";
             if ($this->session->userdata('nama') == null) {
               echo $txt;
-            } else {
+            } else{
               echo $this->session->userdata('nama');
             }
             ?>
@@ -75,10 +85,10 @@
     ?>
       <div class="nav-scroller bg-light  py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-          <a class="p-2 text-dark" href="#">Home</a>
-          <a class="p-2 text-dark" href="#">Profile Saya</a>
-          <a class="p-2 text-dark" href="#">Berita</a>
-          <a class="p-2 text-dark" href="#">Forum</a>
+          <a class="p-2 text-dark" href="<?= base_url('user/Dashboard')?>">Home</a>
+          <a class="p-2 text-dark" href="<?= base_url('user/Gantipass')?>">Profile Saya</a>
+          <a class="p-2 text-dark" href="<?= base_url('user/Agenda')?>">Agenda</a>
+          <a class="p-2 text-dark" href="<?= base_url('user/Berita')?>">Berita</a>
         </nav>
       </div>
     <?php } else if ($this->session->userdata('role') == 1) {
@@ -88,11 +98,7 @@
           <a class="p-2 text-dark" href="<?= base_url('admin/Dashboard') ?>">Home</a>
           <a class="p-2 text-dark" href="#">Profile Saya</a>
           <a class="p-2 text-dark" href="<?= base_url('admin/Agenda') ?>">Agenda</a>
-          <a class="p-2 text-dark" href="<?= base_url('admin/Dashboard/pengumuman') ?>">Pengumuman</a>
-          <a class="p-2 text-dark" href="#">Berita</a>
-          <a class="p-2 text-dark" href="#">Menu</a>
-          <a class="p-2 text-dark" href="#">Album</a>
-          <a class="p-2 text-dark" href="#">Pengumuman</a>
+          <a class="p-2 text-dark" href="<?= base_url('admin/Dashboard/pengumuman') ?>">Berita</a>
         </nav>
       </div>
     <?php } ?>

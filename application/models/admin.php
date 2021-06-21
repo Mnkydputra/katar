@@ -34,4 +34,12 @@ class Admin extends CI_Model
 		$ex     = $this->db->query($sql);
 		return $this->db->affected_rows($sql);
 	}
+
+	//update data
+	public function update($data, $table, $where)
+	{
+		$this->db->where($where);
+		return $this->db->update($table, $data);
+	}
+
 }
